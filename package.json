@@ -1,0 +1,25 @@
+{
+  "name": "systema",
+  "version": "0.1.0",
+  "description": "A platform-agnostic design system built with vanilla CSS and JavaScript.",
+  "scripts": {
+    "storybook": "storybook dev -p 6006",
+    "build-storybook": "storybook build"
+  },
+  "keywords": [
+    "design-system",
+    "css",
+    "vanilla-js",
+    "storybook"
+  ],
+  "author": "Mario Hernandez",
+  "license": "MIT",
+  "devDependencies": {
+    "@storybook/addon-essentials": "^8.6.12",
+    "@storybook/html-vite": "^8.6.12",
+    "storybook": "^8.6.12"
+  },
+  "engines": {
+    "node": ">=20.0.0"
+  }
+}

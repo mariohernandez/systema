@@ -1,0 +1,252 @@
+/**
+ * Button Component
+ *
+ * Variants:  primary | secondary | outline | ghost | danger
+ * Sizes:     sm | md (default) | lg
+ * Modifiers: full-width | icon-only
+ *
+ * Uses :is() for grouped pseudo-class selectors and :not() to
+ * exclude disabled buttons from interactive state styles.
+ */
+
+/* ============================================================
+   BASE BUTTON
+   ============================================================ */
+.btn {
+  /* Layout */
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  white-space: nowrap;
+
+  /* Sizing (md default) */
+  padding-block: var(--space-2);
+  padding-inline: var(--space-5);
+  min-height: 2.5rem; /* 40px */
+
+  /* Typography */
+  font-family: var(--font-sans);
+  font-size: var(--text-sm);
+  font-weight: var(--font-weight-semibold);
+  line-height: var(--leading-none);
+  letter-spacing: var(--tracking-wide);
+  text-decoration: none;
+
+  /* Shape */
+  border-radius: var(--radius-md);
+  border: var(--border-width-thick) solid transparent;
+
+  /* Motion */
+  transition: var(--transition-colors), var(--transition-shadow),
+              transform var(--duration-fast) var(--ease-out);
+
+  /* Cursor */
+  cursor: pointer;
+  user-select: none;
+  -webkit-user-select: none;
+
+  /* Prevent text selection on rapid clicks */
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Active press effect — scoped to non-disabled buttons */
+.btn:not(:disabled, [aria-disabled="true"]):active {
+  transform: translateY(1px);
+}
+
+/* ============================================================
+   FOCUS
+   ============================================================ */
+.btn:focus-visible {
+  outline: 3px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+/* ============================================================
+   DISABLED STATE
+   ============================================================ */
+.btn:is(:disabled, [aria-disabled="true"]) {
+  opacity: 0.45;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+/* ============================================================
+   VARIANT — Primary (filled)
+   ============================================================ */
+.btn--primary {
+  background-color: var(--color-primary);
+  border-color: var(--color-primary);
+  color: var(--color-on-primary);
+}
+
+.btn--primary:not(:disabled, [aria-disabled="true"]):hover {
+  background-color: var(--color-primary-hover);
+  border-color: var(--color-primary-hover);
+  box-shadow: var(--shadow-md);
+}
+
+.btn--primary:not(:disabled, [aria-disabled="true"]):active {
+  background-color: var(--color-primary-active);
+  border-color: var(--color-primary-active);
+  box-shadow: var(--shadow-xs);
+}
+
+/* ============================================================
+   VARIANT — Secondary (tinted)
+   ============================================================ */
+.btn--secondary {
+  background-color: var(--color-primary-subtle);
+  border-color: var(--color-primary-subtle);
+  color: var(--color-primary);
+}
+
+.btn--secondary:not(:disabled, [aria-disabled="true"]):hover {
+  background-color: hsl(var(--color-primary-h) var(--color-primary-c) 90%);
+  border-color: hsl(var(--color-primary-h) var(--color-primary-c) 90%);
+}
+
+.btn--secondary:not(:disabled, [aria-disabled="true"]):active {
+  background-color: hsl(var(--color-primary-h) var(--color-primary-c) 84%);
+  border-color: hsl(var(--color-primary-h) var(--color-primary-c) 84%);
+}
+
+/* ============================================================
+   VARIANT — Outline
+   ============================================================ */
+.btn--outline {
+  background-color: transparent;
+  border-color: var(--color-primary);
+  color: var(--color-primary);
+}
+
+.btn--outline:not(:disabled, [aria-disabled="true"]):hover {
+  background-color: var(--color-primary-subtle);
+}
+
+.btn--outline:not(:disabled, [aria-disabled="true"]):active {
+  background-color: hsl(var(--color-primary-h) var(--color-primary-c) 90%);
+}
+
+/* ============================================================
+   VARIANT — Ghost
+   ============================================================ */
+.btn--ghost {
+  background-color: transparent;
+  border-color: transparent;
+  color: var(--color-primary);
+}
+
+.btn--ghost:not(:disabled, [aria-disabled="true"]):hover {
+  background-color: var(--color-primary-subtle);
+  border-color: var(--color-primary-subtle);
+}
+
+.btn--ghost:not(:disabled, [aria-disabled="true"]):active {
+  background-color: hsl(var(--color-primary-h) var(--color-primary-c) 90%);
+}
+
+/* ============================================================
+   VARIANT — Danger
+   ============================================================ */
+.btn--danger {
+  background-color: var(--color-error);
+  border-color: var(--color-error);
+  color: var(--color-on-error);
+}
+
+.btn--danger:not(:disabled, [aria-disabled="true"]):hover {
+  background-color: hsl(4 80% 43%);
+  border-color: hsl(4 80% 43%);
+  box-shadow: var(--shadow-md);
+}
+
+.btn--danger:not(:disabled, [aria-disabled="true"]):active {
+  background-color: hsl(4 80% 36%);
+  border-color: hsl(4 80% 36%);
+}
+
+/* ============================================================
+   SIZE — Small
+   ============================================================ */
+.btn--sm {
+  padding-block: var(--space-1);
+  padding-inline: var(--space-3);
+  min-height: 2rem; /* 32px */
+  font-size: var(--text-xs);
+  border-radius: var(--radius-base);
+}
+
+/* ============================================================
+   SIZE — Large
+   ============================================================ */
+.btn--lg {
+  padding-block: var(--space-3);
+  padding-inline: var(--space-8);
+  min-height: 3rem; /* 48px */
+  font-size: var(--text-base);
+  border-radius: var(--radius-lg);
+}
+
+/* ============================================================
+   MODIFIER — Full Width
+   ============================================================ */
+.btn--full {
+  width: 100%;
+}
+
+/* ============================================================
+   MODIFIER — Icon only (square)
+   ============================================================ */
+.btn--icon {
+  padding: var(--space-2);
+  min-width: 2.5rem;
+}
+
+.btn--icon.btn--sm {
+  padding: var(--space-1);
+  min-width: 2rem;
+}
+
+.btn--icon.btn--lg {
+  padding: var(--space-3);
+  min-width: 3rem;
+}
+
+/* ============================================================
+   BUTTON GROUP
+   ============================================================ */
+.btn-group {
+  display: inline-flex;
+  align-items: center;
+}
+
+.btn-group > .btn:not(:first-child):not(:last-child) {
+  border-radius: 0;
+}
+
+.btn-group > .btn:first-child:not(:last-child) {
+  border-start-end-radius: 0;
+  border-end-end-radius: 0;
+}
+
+.btn-group > .btn:last-child:not(:first-child) {
+  border-start-start-radius: 0;
+  border-end-start-radius: 0;
+}
+
+/* ============================================================
+   RESPONSIVE — stack full-width on small screens
+   ============================================================ */
+@media (max-width: 30rem) {
+  .btn-group {
+    flex-direction: column;
+    align-items: stretch;
+    width: 100%;
+  }
+
+  .btn-group > .btn:is(:first-child, :last-child, :not(:first-child):not(:last-child)) {
+    border-radius: var(--radius-md);
+  }
+}
