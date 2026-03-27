@@ -1,0 +1,22 @@
+/**
+ * Systema — Main CSS Entry Point
+ *
+ * Import order matters:
+ *  1. Design tokens (custom properties)
+ *  2. Base reset
+ *  3. Base typography
+ *  4. Components
+ */
+
+/* --- Tokens --- */
+@import "./tokens/tokens.css";
+
+/* --- Base --- */
+@import "./base/reset.css";
+@import "./base/typography.css";
+
+/* --- Components --- */
+@import "./components/button/button.css";
+@import "./components/card/card.css";
+@import "./components/heading/heading.css";
+@import "./components/badge/badge.css";

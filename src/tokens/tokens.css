@@ -1,0 +1,286 @@
+/**
+ * Design Tokens
+ *
+ * Global CSS custom properties that define the visual language of Systema.
+ * Tokens are organized into categories: colors, spacing, typography, borders,
+ * shadows, and motion. Themes are applied by overriding these tokens on a
+ * scoped selector (e.g. [data-theme="dark"]).
+ */
+
+/* ============================================================
+   COLOR PALETTE — raw hue/chroma/lightness values used to
+   compute semantic color tokens below.
+   ============================================================ */
+:root {
+  /* Brand – primary blue */
+  --color-primary-h: 220;
+  --color-primary-c: 90%;
+
+  /* Brand – accent indigo */
+  --color-accent-h: 260;
+
+  /* Neutral */
+  --color-neutral-h: 220;
+}
+
+/* ============================================================
+   LIGHT THEME (default)
+   ============================================================ */
+:root,
+[data-theme="light"] {
+  /* --- Surface & Background --- */
+  --color-bg:               hsl(var(--color-neutral-h) 20% 99%);
+  --color-bg-subtle:        hsl(var(--color-neutral-h) 20% 96%);
+  --color-surface:          hsl(var(--color-neutral-h) 20% 100%);
+  --color-surface-raised:   hsl(var(--color-neutral-h) 20% 98%);
+  --color-surface-overlay:  hsl(var(--color-neutral-h) 20% 100% / 0.9);
+
+  /* --- Text --- */
+  --color-text:             hsl(var(--color-neutral-h) 15% 15%);
+  --color-text-muted:       hsl(var(--color-neutral-h) 10% 45%);
+  --color-text-disabled:    hsl(var(--color-neutral-h) 10% 65%);
+  --color-text-inverse:     hsl(var(--color-neutral-h) 10% 98%);
+
+  /* --- Border --- */
+  --color-border:           hsl(var(--color-neutral-h) 15% 85%);
+  --color-border-strong:    hsl(var(--color-neutral-h) 15% 65%);
+
+  /* --- Primary --- */
+  --color-primary:          hsl(var(--color-primary-h) var(--color-primary-c) 48%);
+  --color-primary-hover:    hsl(var(--color-primary-h) var(--color-primary-c) 40%);
+  --color-primary-active:   hsl(var(--color-primary-h) var(--color-primary-c) 33%);
+  --color-primary-subtle:   hsl(var(--color-primary-h) var(--color-primary-c) 95%);
+  --color-primary-text:     hsl(var(--color-neutral-h) 10% 98%);
+  --color-on-primary:       hsl(var(--color-neutral-h) 10% 98%);
+
+  /* --- Accent --- */
+  --color-accent:           hsl(var(--color-accent-h) 80% 55%);
+  --color-accent-hover:     hsl(var(--color-accent-h) 80% 45%);
+  --color-accent-subtle:    hsl(var(--color-accent-h) 80% 95%);
+  --color-on-accent:        hsl(var(--color-neutral-h) 10% 98%);
+
+  /* --- Semantic --- */
+  --color-success:          hsl(145 60% 36%);
+  --color-success-subtle:   hsl(145 60% 94%);
+  --color-on-success:       hsl(145 60% 98%);
+
+  --color-warning:          hsl(38 90% 46%);
+  --color-warning-subtle:   hsl(38 90% 94%);
+  --color-on-warning:       hsl(38 60% 12%);
+
+  --color-error:            hsl(4 80% 50%);
+  --color-error-subtle:     hsl(4 80% 95%);
+  --color-on-error:         hsl(4 10% 98%);
+
+  --color-info:             hsl(198 85% 40%);
+  --color-info-subtle:      hsl(198 85% 94%);
+  --color-on-info:          hsl(198 10% 98%);
+}
+
+/* ============================================================
+   DARK THEME
+   ============================================================ */
+[data-theme="dark"] {
+  /* --- Surface & Background --- */
+  --color-bg:               hsl(var(--color-neutral-h) 20% 8%);
+  --color-bg-subtle:        hsl(var(--color-neutral-h) 15% 11%);
+  --color-surface:          hsl(var(--color-neutral-h) 15% 12%);
+  --color-surface-raised:   hsl(var(--color-neutral-h) 15% 16%);
+  --color-surface-overlay:  hsl(var(--color-neutral-h) 15% 12% / 0.92);
+
+  /* --- Text --- */
+  --color-text:             hsl(var(--color-neutral-h) 20% 92%);
+  --color-text-muted:       hsl(var(--color-neutral-h) 10% 62%);
+  --color-text-disabled:    hsl(var(--color-neutral-h) 10% 40%);
+  --color-text-inverse:     hsl(var(--color-neutral-h) 15% 12%);
+
+  /* --- Border --- */
+  --color-border:           hsl(var(--color-neutral-h) 12% 22%);
+  --color-border-strong:    hsl(var(--color-neutral-h) 12% 38%);
+
+  /* --- Primary --- */
+  --color-primary:          hsl(var(--color-primary-h) var(--color-primary-c) 60%);
+  --color-primary-hover:    hsl(var(--color-primary-h) var(--color-primary-c) 68%);
+  --color-primary-active:   hsl(var(--color-primary-h) var(--color-primary-c) 74%);
+  --color-primary-subtle:   hsl(var(--color-primary-h) var(--color-primary-c) 12%);
+  --color-primary-text:     hsl(var(--color-neutral-h) 15% 8%);
+  --color-on-primary:       hsl(var(--color-neutral-h) 15% 8%);
+
+  /* --- Accent --- */
+  --color-accent:           hsl(var(--color-accent-h) 75% 65%);
+  --color-accent-hover:     hsl(var(--color-accent-h) 75% 72%);
+  --color-accent-subtle:    hsl(var(--color-accent-h) 40% 14%);
+  --color-on-accent:        hsl(var(--color-neutral-h) 15% 8%);
+
+  /* --- Semantic --- */
+  --color-success:          hsl(145 55% 48%);
+  --color-success-subtle:   hsl(145 40% 10%);
+  --color-on-success:       hsl(145 10% 8%);
+
+  --color-warning:          hsl(38 90% 60%);
+  --color-warning-subtle:   hsl(38 60% 10%);
+  --color-on-warning:       hsl(38 60% 8%);
+
+  --color-error:            hsl(4 80% 65%);
+  --color-error-subtle:     hsl(4 60% 11%);
+  --color-on-error:         hsl(4 10% 8%);
+
+  --color-info:             hsl(198 80% 55%);
+  --color-info-subtle:      hsl(198 60% 10%);
+  --color-on-info:          hsl(198 10% 8%);
+}
+
+/* ============================================================
+   SPACING SCALE
+   Uses a 4-point base with a minor-third ratio for larger steps.
+   ============================================================ */
+:root {
+  --space-1:   0.25rem;   /*  4px */
+  --space-2:   0.5rem;    /*  8px */
+  --space-3:   0.75rem;   /* 12px */
+  --space-4:   1rem;      /* 16px */
+  --space-5:   1.25rem;   /* 20px */
+  --space-6:   1.5rem;    /* 24px */
+  --space-8:   2rem;      /* 32px */
+  --space-10:  2.5rem;    /* 40px */
+  --space-12:  3rem;      /* 48px */
+  --space-16:  4rem;      /* 64px */
+  --space-20:  5rem;      /* 80px */
+  --space-24:  6rem;      /* 96px */
+}
+
+/* ============================================================
+   TYPOGRAPHY
+   ============================================================ */
+:root {
+  /* Font families */
+  --font-sans:  system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  --font-serif: Georgia, "Times New Roman", Times, serif;
+  --font-mono:  ui-monospace, "Cascadia Code", "Source Code Pro", Menlo, Consolas, monospace;
+
+  /* Font size scale (fluid, using clamp) */
+  --text-xs:    clamp(0.688rem, 0.664rem + 0.12vw, 0.75rem);   /* 11–12px */
+  --text-sm:    clamp(0.813rem, 0.785rem + 0.14vw, 0.875rem);  /* 13–14px */
+  --text-base:  clamp(1rem, 0.96rem + 0.2vw, 1.063rem);        /* 16–17px */
+  --text-lg:    clamp(1.125rem, 1.078rem + 0.24vw, 1.25rem);   /* 18–20px */
+  --text-xl:    clamp(1.25rem, 1.19rem + 0.3vw, 1.5rem);       /* 20–24px */
+  --text-2xl:   clamp(1.5rem, 1.42rem + 0.4vw, 1.875rem);      /* 24–30px */
+  --text-3xl:   clamp(1.875rem, 1.75rem + 0.63vw, 2.25rem);    /* 30–36px */
+  --text-4xl:   clamp(2.25rem, 2.05rem + 1vw, 3rem);           /* 36–48px */
+  --text-5xl:   clamp(3rem, 2.7rem + 1.5vw, 4rem);             /* 48–64px */
+
+  /* Font weights */
+  --font-weight-light:    300;
+  --font-weight-normal:   400;
+  --font-weight-medium:   500;
+  --font-weight-semibold: 600;
+  --font-weight-bold:     700;
+  --font-weight-black:    900;
+
+  /* Line heights */
+  --leading-none:    1;
+  --leading-tight:   1.25;
+  --leading-snug:    1.375;
+  --leading-normal:  1.5;
+  --leading-relaxed: 1.625;
+  --leading-loose:   2;
+
+  /* Letter spacing */
+  --tracking-tight:  -0.025em;
+  --tracking-normal:  0em;
+  --tracking-wide:    0.025em;
+  --tracking-wider:   0.05em;
+  --tracking-widest:  0.1em;
+}
+
+/* ============================================================
+   BORDERS & RADIUS
+   ============================================================ */
+:root {
+  --radius-none:   0;
+  --radius-sm:     0.125rem;   /*  2px */
+  --radius-base:   0.25rem;    /*  4px */
+  --radius-md:     0.375rem;   /*  6px */
+  --radius-lg:     0.5rem;     /*  8px */
+  --radius-xl:     0.75rem;    /* 12px */
+  --radius-2xl:    1rem;       /* 16px */
+  --radius-3xl:    1.5rem;     /* 24px */
+  --radius-full:   9999px;
+
+  --border-width-thin:   1px;
+  --border-width-base:   1.5px;
+  --border-width-thick:  2px;
+  --border-width-heavy:  3px;
+}
+
+/* ============================================================
+   SHADOWS
+   ============================================================ */
+:root {
+  --shadow-xs:  0 1px 2px 0 hsl(var(--color-neutral-h) 20% 10% / 0.05);
+  --shadow-sm:  0 1px 3px 0 hsl(var(--color-neutral-h) 20% 10% / 0.1),
+                0 1px 2px -1px hsl(var(--color-neutral-h) 20% 10% / 0.1);
+  --shadow-md:  0 4px 6px -1px hsl(var(--color-neutral-h) 20% 10% / 0.1),
+                0 2px 4px -2px hsl(var(--color-neutral-h) 20% 10% / 0.1);
+  --shadow-lg:  0 10px 15px -3px hsl(var(--color-neutral-h) 20% 10% / 0.1),
+                0 4px 6px -4px hsl(var(--color-neutral-h) 20% 10% / 0.1);
+  --shadow-xl:  0 20px 25px -5px hsl(var(--color-neutral-h) 20% 10% / 0.1),
+                0 8px 10px -6px hsl(var(--color-neutral-h) 20% 10% / 0.1);
+  --shadow-2xl: 0 25px 50px -12px hsl(var(--color-neutral-h) 20% 10% / 0.25);
+  --shadow-inner: inset 0 2px 4px 0 hsl(var(--color-neutral-h) 20% 10% / 0.05);
+  --shadow-none:  none;
+}
+
+/* ============================================================
+   MOTION & TRANSITIONS
+   ============================================================ */
+:root {
+  --duration-instant:  0ms;
+  --duration-fast:     100ms;
+  --duration-base:     200ms;
+  --duration-slow:     300ms;
+  --duration-slower:   500ms;
+
+  --ease-default:   ease;
+  --ease-in:        cubic-bezier(0.4, 0, 1, 1);
+  --ease-out:       cubic-bezier(0, 0, 0.2, 1);
+  --ease-in-out:    cubic-bezier(0.4, 0, 0.2, 1);
+  --ease-spring:    cubic-bezier(0.34, 1.56, 0.64, 1);
+
+  --transition-base:     var(--duration-base) var(--ease-in-out);
+  --transition-colors:   color var(--transition-base),
+                         background-color var(--transition-base),
+                         border-color var(--transition-base),
+                         fill var(--transition-base);
+  --transition-shadow:   box-shadow var(--transition-base);
+  --transition-transform: transform var(--duration-base) var(--ease-spring);
+}
+
+/* ============================================================
+   Z-INDEX SCALE
+   ============================================================ */
+:root {
+  --z-below:    -1;
+  --z-base:      0;
+  --z-raised:   10;
+  --z-dropdown: 100;
+  --z-sticky:   200;
+  --z-overlay:  300;
+  --z-modal:    400;
+  --z-toast:    500;
+  --z-tooltip:  600;
+}
+
+/* ============================================================
+   LAYOUT
+   ============================================================ */
+:root {
+  --container-xs:  20rem;    /* 320px */
+  --container-sm:  36rem;    /* 576px */
+  --container-md:  48rem;    /* 768px */
+  --container-lg:  64rem;    /* 1024px */
+  --container-xl:  80rem;    /* 1280px */
+  --container-2xl: 96rem;    /* 1536px */
+
+  --content-width: min(var(--container-xl), 100% - var(--space-8));
+}

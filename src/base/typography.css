@@ -1,0 +1,114 @@
+/**
+ * Base Typography
+ *
+ * Semantic heading and body type styles built on the token scale.
+ * Uses :is() to group related selectors and modern CSS techniques.
+ */
+
+/* ============================================================
+   HEADINGS
+   ============================================================ */
+:is(h1, .h1) {
+  font-size: var(--text-5xl);
+  font-weight: var(--font-weight-black);
+  line-height: var(--leading-none);
+  letter-spacing: var(--tracking-tight);
+}
+
+:is(h2, .h2) {
+  font-size: var(--text-4xl);
+  font-weight: var(--font-weight-bold);
+  line-height: var(--leading-tight);
+  letter-spacing: var(--tracking-tight);
+}
+
+:is(h3, .h3) {
+  font-size: var(--text-3xl);
+  font-weight: var(--font-weight-bold);
+  line-height: var(--leading-snug);
+}
+
+:is(h4, .h4) {
+  font-size: var(--text-2xl);
+  font-weight: var(--font-weight-semibold);
+  line-height: var(--leading-snug);
+}
+
+:is(h5, .h5) {
+  font-size: var(--text-xl);
+  font-weight: var(--font-weight-semibold);
+  line-height: var(--leading-normal);
+}
+
+:is(h6, .h6) {
+  font-size: var(--text-lg);
+  font-weight: var(--font-weight-semibold);
+  line-height: var(--leading-normal);
+}
+
+/* ============================================================
+   LEAD TEXT
+   ============================================================ */
+.lead {
+  font-size: var(--text-xl);
+  line-height: var(--leading-relaxed);
+  color: var(--color-text-muted);
+  max-width: 60ch;
+}
+
+/* ============================================================
+   BODY TEXT
+   ============================================================ */
+.text-xs    { font-size: var(--text-xs); }
+.text-sm    { font-size: var(--text-sm); }
+.text-base  { font-size: var(--text-base); }
+.text-lg    { font-size: var(--text-lg); }
+.text-xl    { font-size: var(--text-xl); }
+.text-2xl   { font-size: var(--text-2xl); }
+.text-3xl   { font-size: var(--text-3xl); }
+
+/* ============================================================
+   FONT WEIGHT UTILITIES
+   ============================================================ */
+.font-light    { font-weight: var(--font-weight-light); }
+.font-normal   { font-weight: var(--font-weight-normal); }
+.font-medium   { font-weight: var(--font-weight-medium); }
+.font-semibold { font-weight: var(--font-weight-semibold); }
+.font-bold     { font-weight: var(--font-weight-bold); }
+.font-black    { font-weight: var(--font-weight-black); }
+
+/* ============================================================
+   COLOR UTILITIES
+   ============================================================ */
+.text-primary  { color: var(--color-primary); }
+.text-muted    { color: var(--color-text-muted); }
+.text-disabled { color: var(--color-text-disabled); }
+.text-success  { color: var(--color-success); }
+.text-warning  { color: var(--color-warning); }
+.text-error    { color: var(--color-error); }
+.text-info     { color: var(--color-info); }
+
+/* ============================================================
+   TEXT ALIGNMENT
+   ============================================================ */
+.text-start  { text-align: start; }
+.text-center { text-align: center; }
+.text-end    { text-align: end; }
+
+/* ============================================================
+   TRUNCATION
+   ============================================================ */
+.truncate {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* ============================================================
+   RESPONSIVE — scale headings on smaller viewports
+   ============================================================ */
+@media (max-width: 40rem) {
+  :is(h1, .h1) { font-size: var(--text-4xl); }
+  :is(h2, .h2) { font-size: var(--text-3xl); }
+  :is(h3, .h3) { font-size: var(--text-2xl); }
+}

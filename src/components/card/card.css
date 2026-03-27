@@ -1,0 +1,200 @@
+/**
+ * Card Component
+ *
+ * A flexible surface for grouping related content.
+ *
+ * Parts:     .card__media | .card__header | .card__body | .card__footer
+ * Variants:  (default) | card--bordered | card--flat
+ * Sizes:     card--sm | card--lg
+ *
+ * Uses :has() to conditionally adjust layout when a media element is present.
+ */
+
+/* ============================================================
+   BASE CARD
+   ============================================================ */
+.card {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--color-surface);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-md);
+  overflow: hidden;
+  transition: var(--transition-shadow), var(--transition-transform);
+  max-width: 100%;
+}
+
+/* ============================================================
+   VARIANT — Bordered (no shadow, visible border)
+   ============================================================ */
+.card--bordered {
+  box-shadow: var(--shadow-none);
+  border: var(--border-width-thin) solid var(--color-border);
+}
+
+/* ============================================================
+   VARIANT — Flat (no shadow, no border)
+   ============================================================ */
+.card--flat {
+  box-shadow: var(--shadow-none);
+  background-color: var(--color-bg-subtle);
+}
+
+/* ============================================================
+   INTERACTIVE CARD — hoverable lift effect
+   ============================================================ */
+.card--interactive {
+  cursor: pointer;
+}
+
+.card--interactive:hover {
+  box-shadow: var(--shadow-xl);
+  transform: translateY(-2px);
+}
+
+.card--interactive:active {
+  transform: translateY(0);
+  box-shadow: var(--shadow-md);
+}
+
+.card--interactive:focus-visible {
+  outline: 3px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+/* ============================================================
+   MEDIA (image / video area)
+   Uses :has() to add bottom border-radius when no header follows.
+   ============================================================ */
+.card__media {
+  overflow: hidden;
+  aspect-ratio: 16 / 9;
+}
+
+.card__media img,
+.card__media video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform var(--duration-slow) var(--ease-out);
+}
+
+.card--interactive:hover .card__media img,
+.card--interactive:hover .card__media video {
+  transform: scale(1.04);
+}
+
+/* ============================================================
+   HEADER
+   ============================================================ */
+.card__header {
+  padding-block: var(--space-5);
+  padding-inline: var(--space-6);
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--space-3);
+}
+
+.card__header:not(:last-child) {
+  padding-block-end: var(--space-2);
+}
+
+.card__title {
+  font-size: var(--text-xl);
+  font-weight: var(--font-weight-semibold);
+  line-height: var(--leading-snug);
+  color: var(--color-text);
+  margin: 0;
+}
+
+.card__subtitle {
+  font-size: var(--text-sm);
+  color: var(--color-text-muted);
+  margin-block-start: var(--space-1);
+  margin-block-end: 0;
+  margin-inline: 0;
+}
+
+/* ============================================================
+   BODY
+   ============================================================ */
+.card__body {
+  padding-inline: var(--space-6);
+  padding-block: var(--space-4);
+  flex: 1;
+  color: var(--color-text-muted);
+  font-size: var(--text-base);
+  line-height: var(--leading-relaxed);
+}
+
+/* When there is no header before the body, add top padding */
+.card__body:first-child {
+  padding-block-start: var(--space-6);
+}
+
+/* When there is no footer after the body, add bottom padding */
+.card__body:last-child {
+  padding-block-end: var(--space-6);
+}
+
+/* ============================================================
+   FOOTER
+   ============================================================ */
+.card__footer {
+  padding-block: var(--space-4);
+  padding-inline: var(--space-6);
+  border-block-start: var(--border-width-thin) solid var(--color-border);
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  flex-wrap: wrap;
+}
+
+/* ============================================================
+   SIZE — Small
+   ============================================================ */
+.card--sm .card__header,
+.card--sm .card__body,
+.card--sm .card__footer {
+  padding-inline: var(--space-4);
+}
+
+.card--sm .card__title {
+  font-size: var(--text-base);
+}
+
+/* ============================================================
+   SIZE — Large
+   ============================================================ */
+.card--lg .card__header,
+.card--lg .card__body,
+.card--lg .card__footer {
+  padding-inline: var(--space-8);
+  padding-block: var(--space-6);
+}
+
+.card--lg .card__title {
+  font-size: var(--text-2xl);
+}
+
+/* ============================================================
+   CARD GRID LAYOUT
+   ============================================================ */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(18rem, 100%), 1fr));
+  gap: var(--space-6);
+}
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+@media (max-width: 40rem) {
+  .card__header,
+  .card__body,
+  .card__footer {
+    padding-inline: var(--space-4);
+  }
+}
